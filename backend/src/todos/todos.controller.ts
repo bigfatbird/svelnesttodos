@@ -32,10 +32,7 @@ export class TodosController {
   // POST /todos
   @Post()
   create(@Body() createTodoDto: CreateTodoDto) {
-    return {
-      title: createTodoDto.title,
-      description: createTodoDto.description,
-    };
+    return this.todosService.create(createTodoDto);
   }
 
   // PUT /todos/:id
