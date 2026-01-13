@@ -27,4 +27,13 @@ export class TodosService {
   findAll() {
     return this.todos;
   }
+
+  create(createTodoDto: { title: string; description: string }) {
+    const newTodo = {
+      id: randomUUID(),
+      ...createTodoDto,
+    };
+    this.todos.push(newTodo);
+    return newTodo;
+  }
 }
